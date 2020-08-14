@@ -2,7 +2,7 @@ spring:
    application:
      name: CapitalPoolConfigServer
    profiles:
-     active: local
+     active: dev
    cloud:
      config:
        server:
