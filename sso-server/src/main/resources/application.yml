@@ -1,0 +1,22 @@
+server:
+  port: 9002
+spring:
+  application:
+    name: CapitalPoolSsoServer
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9000/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: false
+logging:
+  level:
+    root: debug

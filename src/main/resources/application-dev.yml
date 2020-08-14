@@ -1,5 +1,3 @@
-user:
+env:
   name: dev
-  label:
-    id: 2
-    text: dev
+
