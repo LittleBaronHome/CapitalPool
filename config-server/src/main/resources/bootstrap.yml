@@ -1,6 +1,8 @@
 spring:
    application:
      name: CapitalPoolConfigServer
+   profiles:
+     active: local
    cloud:
      config:
        server:
@@ -8,5 +10,5 @@ spring:
            uri: https://github.com/LittleBaronHome/CapitalPool
            username: qiao_jiyuan@163.com
            password: yuanyuan8513.2
-           default-label: master
-           search-paths: src/main/resources
+#           default-label: master
+           search-paths: src/main/resources/${spring.profiles.active}

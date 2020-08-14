@@ -10,8 +10,8 @@ public class TestController {
     @Autowired
     private Env env;
 
-    @GetMapping("/getuser")
+    @GetMapping("/env")
     public String getUser() {
-        return env.getName() + env.getLabel();
+        return env.getName();
     }
 }

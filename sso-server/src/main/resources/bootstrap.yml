@@ -1,8 +1,6 @@
 spring:
-  profiles:
-    active: local
   cloud:
     config:
       uri: http://127.0.0.1:9001
       label: master
-      profile: ${spring.profiles.active}
+      profile: sso
