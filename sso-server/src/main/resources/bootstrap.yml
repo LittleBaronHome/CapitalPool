@@ -2,5 +2,5 @@ spring:
   cloud:
     config:
       uri: http://127.0.0.1:9001
-      label: master
+#      label: master
       profile: sso
