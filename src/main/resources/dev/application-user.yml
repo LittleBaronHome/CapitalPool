@@ -1,0 +1,22 @@
+env:
+  name: dev
+
+spring:
+  datasource:
+    username: root
+    password: Ihq8513.2
+    url: jdbc:mysql://192.168.3.34:3306/user_auth?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.ihq.capitalpool.userserver.Entity
+
+#showSql
+logging:
+  level:
+    com:
+      ihq:
+        capitalpool:
+          userserver:
+            Mapper: debug
