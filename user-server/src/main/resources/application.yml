@@ -1,0 +1,8 @@
+logging:
+  level:
+    root: debug
+    com:
+      ihq:
+        capitalpool:
+          userserver:
+            Mapper: debug

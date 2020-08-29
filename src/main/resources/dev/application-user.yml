@@ -1,7 +1,17 @@
 env:
   name: dev
 
+server:
+  port: 9004
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9000/eureka
+
 spring:
+  application:
+      name: CapitalPoolUserServer
   datasource:
     username: root
     password: Ihq8513.2
@@ -11,12 +21,3 @@ spring:
 mybatis:
   mapper-locations: classpath:mapping/*Mapper.xml
   type-aliases-package: com.ihq.capitalpool.userserver.Entity
-
-#showSql
-logging:
-  level:
-    com:
-      ihq:
-        capitalpool:
-          userserver:
-            Mapper: debug

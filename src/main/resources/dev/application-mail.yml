@@ -1,4 +1,17 @@
+env:
+  name: dev
+
+server:
+  port: 9003
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9000/eureka
+
 spring:
+  application:
+    name: CapitalPoolMailServer
   mail:
     host: smtp.163.com #发送邮件服务器
     username: qiao_jiyuan@163.com #发送邮件的邮箱地址
@@ -9,3 +22,5 @@ spring:
     properties.mail.smtp.starttls.required: true
     properties.mail.smtp.ssl.enable: true
     default-encoding: utf-8
+
+
