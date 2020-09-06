@@ -3,4 +3,4 @@ spring:
     config:
       uri: http://127.0.0.1:9001
 #      label: master
-      profile: sso
+      profile: ssoserver

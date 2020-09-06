@@ -21,3 +21,20 @@ spring:
 mybatis:
   mapper-locations: classpath:mapping/*Mapper.xml
   type-aliases-package: com.ihq.capitalpool.userserver.Entity
+  configuration:
+      map-underscore-to-camel-case: true
+
+logging:
+  level:
+    root: debug
+    com:
+      ihq:
+        capitalpool:
+          userserver:
+            Mapper: debug
+
+user_active_millisecond: 600000 # 10min
+
+
+
+
