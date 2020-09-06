@@ -1,6 +1,6 @@
-package com.ihq.capitalpool.mailserver.Service;
+package com.ihq.capitalpool.mailserver.ServiceImpl;
 
-import com.ihq.capitalpool.mailserver.Interface.IMailService;
+import com.ihq.capitalpool.mailserver.Service.IMailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -35,18 +35,11 @@ public class IMailServiceImpl implements IMailService {
      */
     @Override
     public void sendSimpleMail(String to, String subject, String content) {
-        //创建SimpleMailMessage对象
-        SimpleMailMessage message = new SimpleMailMessage();
-        //邮件发送人
+        SimpleMailMessage message = new SimpleMailMessage(); //创建SimpleMailMessage对象
         message.setFrom(from);
-        //邮件接收人
         message.setTo(to);
-        //邮件主题
         message.setSubject(subject);
-        //邮件内容
         message.setText(content);
-        //发送邮件
-        logger.info(String.format("发送邮件【%s】 To %s", subject, to));
         mailSender.send(message);
     }
 
@@ -58,21 +51,14 @@ public class IMailServiceImpl implements IMailService {
      */
     @Override
     public void sendHtmlMail(String to, String subject, String content) {
-        //获取MimeMessage对象
-        MimeMessage message = mailSender.createMimeMessage();
+        MimeMessage message = mailSender.createMimeMessage(); //获取MimeMessage对象
         MimeMessageHelper messageHelper;
         try {
             messageHelper = new MimeMessageHelper(message, true);
-            //邮件发送人
             messageHelper.setFrom(from);
-            //邮件接收人
             messageHelper.setTo(to);
-            //邮件主题
             message.setSubject(subject);
-            //邮件内容，html格式
             messageHelper.setText(content, true);
-            //发送
-            logger.info(String.format("发送邮件【%s】 To %s", subject, to));
             mailSender.send(message);
         } catch (MessagingException e) {
             logger.error("发送邮件时发生异常！", e);
@@ -99,7 +85,6 @@ public class IMailServiceImpl implements IMailService {
             FileSystemResource file = new FileSystemResource(new File(filePath));
             String fileName = filePath.substring(filePath.lastIndexOf(File.separator));
             helper.addAttachment(fileName, file);
-            logger.info(String.format("发送邮件【%s】 To %s", subject, to));
             mailSender.send(message);
         } catch (MessagingException e) {
             logger.error("发送邮件时发生异常！", e);

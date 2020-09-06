@@ -5,9 +5,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
-public class User {
+public class UserTemp {
     private Integer id;
-    private String uuid;
     private String username;
     @NotBlank(message = "昵称不能为空")
     private String name;
@@ -17,22 +16,22 @@ public class User {
     private String phone;
     @NotBlank(message = "密码不能为空")
     private String password;
-    private Integer status;
+    private String activeCode;
     private Date createTime;
 
-    public User(Integer id, String uuid, String username, String name, String email, String phone, String password, Integer status, Date createTime) {
+    public UserTemp() {
+    }
+
+    public UserTemp(Integer id, String username, @NotBlank(message = "昵称不能为空") String name, @NotBlank(message = "邮箱不能为空") @Email(message = "邮箱格式不正确") String email, String phone, @NotBlank(message = "密码不能为空") String password, String activeCode, Date createTime) {
         this.id = id;
-        this.uuid = uuid;
         this.username = username;
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.password = password;
-        this.status = status;
+        this.activeCode = activeCode;
         this.createTime = createTime;
     }
-
-    public User() {}
 
     public Integer getId() {
         return id;
@@ -40,14 +39,6 @@ public class User {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
     }
 
     public String getUsername() {
@@ -90,12 +81,12 @@ public class User {
         this.password = password;
     }
 
-    public Integer getStatus() {
-        return status;
+    public String getActiveCode() {
+        return activeCode;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setActiveCode(String activeCode) {
+        this.activeCode = activeCode;
     }
 
     public Date getCreateTime() {

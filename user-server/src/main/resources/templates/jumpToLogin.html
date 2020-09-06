@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 100vh;
+        }
+        #main{
+            margin: 0 auto;
+            background-color: #cccccc;
+            position: relative;
+            top: calc(50% - 150px);
+            text-align: center;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h3 th:text="${msg}"></h3>
+        <a href = "https://www.baidu.com"><b>点击跳转</b></a>
+    </div>
+</body>
+</html>
